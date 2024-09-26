@@ -18,19 +18,15 @@ public class main {
     homePage searchBox=new homePage();
     productsPage ps=new productsPage();
     cartPage addToCart=new cartPage();
-    timeDelay timeDelay=new timeDelay();
     /*****************************************************************************/
     @BeforeTest
     public void beforeTest() throws IOException {
-        //-	Open amazon link “https://www.amazon.com/”
-        String web = "https://www.amazon.com";
         driver.manage().window().setSize(new Dimension(1024, 768));
-        searchBox.Web(driver);
-
     }
     /*****************************************************************************/
     @Test
     public void Scenario1() {
+        searchBox.Web(driver,"https://www.amazon.com");
         driver.manage().timeouts().implicitlyWait(Duration.ofDays(10));
         searchBox.searchBox(driver).sendKeys("car accessories");
         searchBox.searchBox(driver).submit();
